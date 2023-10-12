@@ -59,25 +59,25 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  FlatButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        widget.onCameraBTNPressed();
-                      },
-                      child: Text(
-                        'CAMERA',
-                        style: TextStyle(
-                            fontSize: 18, color: Color(kDeepDarkGreenColor)),
-                      )),
-                  FlatButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        widget.onGalleryBTNPressed();
-                      },
-                      child: Text(
-                        'GALLERY',
-                        style: TextStyle(fontSize: 18, color: Colors.green),
-                      )),
+                  // FlatButton(
+                  //     onPressed: () {
+                  //       Navigator.pop(context);
+                  //       widget.onCameraBTNPressed();
+                  //     },
+                  //     child: Text(
+                  //       'CAMERA',
+                  //       style: TextStyle(
+                  //           fontSize: 18, color: Color(kDeepDarkGreenColor)),
+                  //     )),
+                  // FlatButton(
+                  //     onPressed: () {
+                  //       Navigator.pop(context);
+                  //       widget.onGalleryBTNPressed();
+                  //     },
+                  //     child: Text(
+                  //       'GALLERY',
+                  //       style: TextStyle(fontSize: 18, color: Colors.green),
+                  //     )),
                 ],
               ),
             ],

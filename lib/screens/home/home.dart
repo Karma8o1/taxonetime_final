@@ -12,7 +12,7 @@ import 'package:taxonetime/colors/colors.dart';
 import 'package:taxonetime/controller/authController.dart';
 import 'package:taxonetime/models/categories.dart';
 import 'package:taxonetime/models/userData.dart';
-// import 'package:taxonetime/screens/scanners/cnicScanner.dart';
+import 'package:taxonetime/screens/scanners/cnicScanner.dart';
 import 'package:taxonetime/widgets/category_widget.dart';
 import 'package:taxonetime/widgets/drawer.dart';
 import 'package:taxonetime/widgets/shimmers.dart';
@@ -28,54 +28,54 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      FirebaseFirestore.instance
-          .collection('userinfo')
-          .doc(FirebaseAuth.instance.currentUser!.uid)
-          .get()
-          .then((value) {
-        if (!value.exists) {
-          showDialog(
-            context: context,
-            barrierDismissible: false,
-            builder: (_) => WillPopScope(
-              onWillPop: () async => false,
-              child: AlertDialog(
-                title: const Text(
-                  'Scan CNIC to continue',
-                  style: TextStyle(
-                      color: Color(kDarkGreyColor),
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.bold),
-                ),
-                // content: Scanners(
-                //   uid: FirebaseAuth.instance.currentUser!.uid,
-                //   email: FirebaseAuth.instance.currentUser!.email,
-                // ),
-              ),
-            ),
-          );
-        } else {
-          FirebaseFirestore.instance
-              .collection('userinfo')
-              .doc(FirebaseAuth.instance.currentUser!.uid)
-              .get()
-              .then((value) {
-            AuthController.authInstance.userData.value =
-                UsersData.fromSnapshot(value);
-          }).onError((error, stackTrace) {
-            Get.snackbar(
-              'Error',
-              error.toString(),
-              borderRadius: 0,
-              backgroundColor: Colors.red,
-              margin: const EdgeInsets.all(0),
-              colorText: Colors.white,
-            );
-          });
-        }
-      });
-    });
+    // SchedulerBinding.instance.addPostFrameCallback((_) {
+    //   FirebaseFirestore.instance
+    //       .collection('userinfo')
+    //       .doc(FirebaseAuth.instance.currentUser!.uid)
+    //       .get()
+    //       .then((value) {
+    //     if (!value.exists) {
+    //       showDialog(
+    //         context: context,
+    //         // barrierDismissible: false,
+    //         builder: (_) => WillPopScope(
+    //           onWillPop: () async => false,
+    //           child: AlertDialog(
+    //             title: const Text(
+    //               'Scan CNIC to continue',
+    //               style: TextStyle(
+    //                   color: Color(kDarkGreyColor),
+    //                   fontSize: 24.0,
+    //                   fontWeight: FontWeight.bold),
+    //             ),
+    //             content: Scanners(
+    //               uid: FirebaseAuth.instance.currentUser!.uid,
+    //               email: FirebaseAuth.instance.currentUser!.email,
+    //             ),
+    //           ),
+    //         ),
+    //       );
+    //     } else {
+    //       FirebaseFirestore.instance
+    //           .collection('userinfo')
+    //           .doc(FirebaseAuth.instance.currentUser!.uid)
+    //           .get()
+    //           .then((value) {
+    //         AuthController.authInstance.userData.value =
+    //             UsersData.fromSnapshot(value);
+    //       }).onError((error, stackTrace) {
+    //         Get.snackbar(
+    //           'Error',
+    //           error.toString(),
+    //           borderRadius: 0,
+    //           backgroundColor: Colors.red,
+    //           margin: const EdgeInsets.all(0),
+    //           colorText: Colors.white,
+    //         );
+    //       });
+    //     }
+    //   });
+    // });
   }
 
   @override
@@ -108,7 +108,11 @@ class _HomeState extends State<Home> {
                               .snapshots(),
                           builder:
                               (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                            if (snapshot.hasData) {
+                            if (snapshot.hasData &&
+                                (snapshot.connectionState ==
+                                        ConnectionState.active ||
+                                    snapshot.connectionState ==
+                                        ConnectionState.done)) {
                               return Column(
                                 children: [
                                   CarouselSlider.builder(
