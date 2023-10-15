@@ -14,7 +14,6 @@ class Services {
     required this.categoryId,
     required this.requirements,
   });
-  @override
   List<Object?> get props => [id, serviceName, desc, imageUrl, servicePrice];
 
   static Services fromSnapshot(DocumentSnapshot snapshot) {
