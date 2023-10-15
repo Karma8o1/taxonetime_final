@@ -56,12 +56,11 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBIZd3wGhq7HtKrqDXLdR15UhixVLYqimk',
-    appId: '1:164525720989:android:4d8d63e2171c66b9e51b74',
-    messagingSenderId: '164525720989',
-    projectId: 'taxonetime-cff62',
-    storageBucket: 'taxonetime-cff62.appspot.com',
-  );
+      apiKey: 'AIzaSyBIZd3wGhq7HtKrqDXLdR15UhixVLYqimk',
+      appId: '1:164525720989:android:4d8d63e2171c66b9e51b74',
+      messagingSenderId: '164525720989',
+      projectId: 'taxonetime-cff62',
+      storageBucket: 'taxonetime-cff62.appspot.com');
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyB1dA8u45zLwl3kQjNCHvLJZxGEPRa3mps',
