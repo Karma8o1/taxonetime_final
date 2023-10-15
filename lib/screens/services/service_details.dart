@@ -7,12 +7,13 @@ import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pay/pay.dart';
 import 'package:taxonetime/constant/constant.dart';
 import 'package:taxonetime/controller/authController.dart';
 import 'package:taxonetime/models/service.dart';
 import 'package:taxonetime/widgets/notification.dart';
 
-String ref = 'gs://t-o-t-5ec61.appspot.com/userDocuments';
+String ref = 'gs://taxonetime-cff62.appspot.com/userDocuments';
 List docUri = [];
 List<String> docAddress = [];
 final storageRef = FirebaseStorage.instance.refFromURL(ref);
@@ -28,13 +29,13 @@ class ServiceDetails extends StatefulWidget {
 class _ServiceDetailsState extends State<ServiceDetails> {
   @override
   Widget build(BuildContext context) {
-    // final _paymentItems = [
-    //   PaymentItem(
-    //     label: widget.services.serviceName,
-    //     amount: widget.services.servicePrice.toString(),
-    //     status: PaymentItemStatus.final_price,
-    //   )
-    // ];
+    final _paymentItems = [
+      PaymentItem(
+        label: widget.services.serviceName,
+        amount: widget.services.servicePrice.toString(),
+        status: PaymentItemStatus.final_price,
+      )
+    ];
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -91,11 +92,14 @@ class _ServiceDetailsState extends State<ServiceDetails> {
               ],
             ),
             divider,
+            divider,
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               child: Text(widget.services.desc,
                   style: const TextStyle(fontSize: 14)),
             ),
+            divider,
+            divider,
             divider,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -132,9 +136,10 @@ class _ServiceDetailsState extends State<ServiceDetails> {
               ],
             ),
             divider,
+            divider,
             Row(
               children: const [
-                Text('ETD: ', style: TextStyle(fontSize: 18)),
+                Text('ETA: ', style: TextStyle(fontSize: 18)),
                 Text('1 day',
                     style:
                         TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
@@ -165,16 +170,16 @@ class _ServiceDetailsState extends State<ServiceDetails> {
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                // GooglePayButton(
-                                //   height: 70,
-                                //   width: 200,
+                                GooglePayButton(
+                                  height: 70,
+                                  width: 200,
 
-                                //   paymentConfigurationAsset: 'gpay.json',
-                                //   paymentItems: _paymentItems,
-                                //   // style: GooglePayButtonStyle.black,
-                                //   type: GooglePayButtonType.buy,
-                                //   onPaymentResult: onGooglePayResult,
-                                // ),
+                                  paymentConfigurationAsset: 'gpay.json',
+                                  paymentItems: _paymentItems,
+                                  // style: GooglePayButtonStyle.black,
+                                  type: GooglePayButtonType.buy,
+                                  onPaymentResult: onGooglePayResult,
+                                ),
                               ],
                             ),
                           );

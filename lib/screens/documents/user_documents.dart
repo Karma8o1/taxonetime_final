@@ -26,7 +26,7 @@ class UserDocuments extends StatelessWidget {
             if (snapshot.hasData && snapshot.data!.docs.isNotEmpty) {
               return ListView.builder(
                   itemCount: snapshot.data!.docs.length,
-                  itemBuilder: (context, int index) {
+                  itemBuilder: (context, int index) { 
                     return Column(
                       children: [
                         ...snapshot.data!.docs[index]['docUri']

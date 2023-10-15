@@ -120,6 +120,7 @@ class _LoginState extends State<Login> {
                           padding: const EdgeInsets.symmetric(horizontal: 50),
                           child: SignInButton(
                             Buttons.email,
+                            text: 'Login with Email',
                             onPressed: () {
                               emailLogin();
                             },
@@ -129,6 +130,7 @@ class _LoginState extends State<Login> {
                           padding: const EdgeInsets.symmetric(horizontal: 50),
                           child: SignInButton(
                             Buttons.facebook,
+                            text: 'Login with Facebook',
                             onPressed: () {
                               AuthController.authInstance.signInWithFacebook();
                             },
@@ -138,6 +140,7 @@ class _LoginState extends State<Login> {
                           padding: const EdgeInsets.symmetric(horizontal: 50),
                           child: SignInButton(
                             Buttons.google,
+                            text: 'Login with Google',
                             onPressed: () {
                               AuthController.authInstance.handleSignIn();
                             },
@@ -147,42 +150,22 @@ class _LoginState extends State<Login> {
                           padding: const EdgeInsets.symmetric(horizontal: 50),
                           child: SignInButton(
                             Buttons.apple,
+                            text: 'Login with Apple',
                             onPressed: () {
                               return null;
                             },
                           ),
                         ),
                         Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 60),
-                            child: ElevatedButton(
-                              style: ButtonStyle(
-                                shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(18.0),
-                                    side: const BorderSide(
-                                        color: Colors.transparent),
-                                  ),
-                                ),
-                              ),
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 5.0),
-                                child: Row(
-                                  children: const [
-                                    Icon(Icons.app_registration),
-                                    VerticalDivider(
-                                      color: Colors.transparent,
-                                      width: 10,
-                                    ),
-                                    Text('New Registration')
-                                  ],
-                                ),
-                              ),
-                              onPressed: () {
-                                newUser();
-                              },
-                            )),
+                          padding: const EdgeInsets.symmetric(horizontal: 50),
+                          child: SignInButton(
+                            Buttons.email,
+                            text: 'New Registration',
+                            onPressed: () {
+                              return newUser();
+                            },
+                          ),
+                        ),
                         const Divider(
                           height: 25,
                           color: Colors.transparent,

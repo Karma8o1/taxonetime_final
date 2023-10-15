@@ -28,54 +28,54 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    // SchedulerBinding.instance.addPostFrameCallback((_) {
-    //   FirebaseFirestore.instance
-    //       .collection('userinfo')
-    //       .doc(FirebaseAuth.instance.currentUser!.uid)
-    //       .get()
-    //       .then((value) {
-    //     if (!value.exists) {
-    //       showDialog(
-    //         context: context,
-    //         // barrierDismissible: false,
-    //         builder: (_) => WillPopScope(
-    //           onWillPop: () async => false,
-    //           child: AlertDialog(
-    //             title: const Text(
-    //               'Scan CNIC to continue',
-    //               style: TextStyle(
-    //                   color: Color(kDarkGreyColor),
-    //                   fontSize: 24.0,
-    //                   fontWeight: FontWeight.bold),
-    //             ),
-    //             content: Scanners(
-    //               uid: FirebaseAuth.instance.currentUser!.uid,
-    //               email: FirebaseAuth.instance.currentUser!.email,
-    //             ),
-    //           ),
-    //         ),
-    //       );
-    //     } else {
-    //       FirebaseFirestore.instance
-    //           .collection('userinfo')
-    //           .doc(FirebaseAuth.instance.currentUser!.uid)
-    //           .get()
-    //           .then((value) {
-    //         AuthController.authInstance.userData.value =
-    //             UsersData.fromSnapshot(value);
-    //       }).onError((error, stackTrace) {
-    //         Get.snackbar(
-    //           'Error',
-    //           error.toString(),
-    //           borderRadius: 0,
-    //           backgroundColor: Colors.red,
-    //           margin: const EdgeInsets.all(0),
-    //           colorText: Colors.white,
-    //         );
-    //       });
-    //     }
-    //   });
-    // });
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      FirebaseFirestore.instance
+          .collection('userinfo')
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .get()
+          .then((value) {
+        if (!value.exists) {
+          showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (_) => WillPopScope(
+              onWillPop: () async => false,
+              child: AlertDialog(
+                title: const Text(
+                  'Scan CNIC to continue',
+                  style: TextStyle(
+                      color: Color(kDarkGreyColor),
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold),
+                ),
+                content: Scanners(
+                  uid: FirebaseAuth.instance.currentUser!.uid,
+                  email: FirebaseAuth.instance.currentUser!.email,
+                ),
+              ),
+            ),
+          );
+        } else {
+          FirebaseFirestore.instance
+              .collection('userinfo')
+              .doc(FirebaseAuth.instance.currentUser!.uid)
+              .get()
+              .then((value) {
+            AuthController.authInstance.userData.value =
+                UsersData.fromSnapshot(value);
+          }).onError((error, stackTrace) {
+            Get.snackbar(
+              'Error',
+              error.toString(),
+              borderRadius: 0,
+              backgroundColor: Colors.red,
+              margin: const EdgeInsets.all(0),
+              colorText: Colors.white,
+            );
+          });
+        }
+      });
+    });
   }
 
   @override

@@ -12,16 +12,16 @@ late SharedPreferences prefs;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   prefs = await SharedPreferences.getInstance();
   isViewed = prefs.getBool('showHome') ?? false;
   themeState = prefs.getBool('theme') ?? false;
 
   Get.put(AuthController());
   AuthController.authInstance.themeState.value = themeState;
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+
   runApp(TaxOneTime(
     isviewed: isViewed,
   ));

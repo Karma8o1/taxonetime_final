@@ -62,7 +62,7 @@ class _NewsPageState extends State<NewsPage> {
 
   Widget _buildTopHeadlinesTabView() {
     return FutureBuilder<List<Article>>(
-        future: _newsAPI.getTopHeadlines(category: 'business', query: "en"),
+        future: _newsAPI.getTopHeadlines(category: 'business', query: "us"),
         builder: (BuildContext context, AsyncSnapshot<List<Article>> snapshot) {
           return snapshot.connectionState == ConnectionState.done
               ? snapshot.hasData
