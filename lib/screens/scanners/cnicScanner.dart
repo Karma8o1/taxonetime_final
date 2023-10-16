@@ -1,4 +1,4 @@
-// ignore_for_file: equal_keys_in_map, must_be_immutable, unused_element
+// ignore_for_file: equal_keys_in_map, must_be_immutable, unused_element, unnecessary_null_comparison
 
 import 'dart:io';
 
