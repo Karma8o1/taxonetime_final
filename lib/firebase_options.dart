@@ -48,7 +48,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyDRWA1Isv27JMCpX4Zd-WRgLkXpHMomdew',
-    appId: '1:164525720989:web:102274091933e83ce51b74',
+    appId: '1:164525720989:web:e7113d158418eef3e51b74',
     messagingSenderId: '164525720989',
     projectId: 'taxonetime-cff62',
     authDomain: 'taxonetime-cff62.firebaseapp.com',
@@ -69,7 +69,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '164525720989',
     projectId: 'taxonetime-cff62',
     storageBucket: 'taxonetime-cff62.appspot.com',
-    androidClientId: '164525720989-bp6bu9u120r7u0mblm7gvfg66o3q1625.apps.googleusercontent.com',
+    androidClientId: '164525720989-3qhhkp2m6f0kc0usb4kctheteh6li3n5.apps.googleusercontent.com',
     iosClientId: '164525720989-t4dv2jnklrs7sqndsljha6er196obe9m.apps.googleusercontent.com',
     iosBundleId: 'com.example.taxonetime',
   );

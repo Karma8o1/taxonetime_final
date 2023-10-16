@@ -100,15 +100,13 @@ class _HomeState extends State<Home> {
                   children: [
                     SizedBox(
                       height: 250,
-                      child: FutureBuilder(
-                          future: FirebaseFirestore.instance
+                      child: StreamBuilder(
+                          stream: FirebaseFirestore.instance
                               .collection('slider')
-                              .get(),
+                              .snapshots(),
                           builder:
                               (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                            if (snapshot.hasData &&
-                                snapshot.connectionState ==
-                                    ConnectionState.done) {
+                            if (snapshot.hasData) {
                               return Column(
                                 children: [
                                   CarouselSlider.builder(
@@ -234,15 +232,13 @@ class _HomeState extends State<Home> {
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height - 415,
-                      child: FutureBuilder(
-                          future: FirebaseFirestore.instance
+                      child: StreamBuilder(
+                          stream: FirebaseFirestore.instance
                               .collection('categories')
-                              .get(),
+                              .snapshots(),
                           builder: (BuildContext context,
                               AsyncSnapshot<QuerySnapshot> snapshot) {
-                            if (snapshot.hasData &&
-                                snapshot.connectionState ==
-                                    ConnectionState.done) {
+                            if (snapshot.hasData) {
                               return ListView.builder(
                                   itemCount: snapshot.data!.docs.length,
                                   itemBuilder:

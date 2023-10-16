@@ -14,14 +14,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "164525720989-bp6bu9u120r7u0mblm7gvfg66o3q1625.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.taxonetime",
-            "certificate_hash": "2ae3b77f2b94d5138946ea3e62fd16d052d1425c"
-          }
-        },
-        {
           "client_id": "164525720989-lceoo58okposblrjd2oa6ombq1nnbek6.apps.googleusercontent.com",
           "client_type": 3
         }
