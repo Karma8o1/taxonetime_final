@@ -1,11 +1,15 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
+import 'package:taxonetime/colors/colors.dart';
 import 'package:taxonetime/controller/authController.dart';
 import 'package:taxonetime/screens/chat/chatbody.dart';
 import 'package:taxonetime/screens/documents/user_documents.dart';
 import 'package:taxonetime/screens/profile/profile_page.dart';
+import 'package:taxonetime/screens/scanners/cnicScanner.dart';
 import 'package:taxonetime/widgets/user_credit_card.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({Key? key}) : super(key: key);
@@ -80,6 +84,37 @@ class DrawerWidget extends StatelessWidget {
                           trailing: Icon(Icons.message),
                         ),
                       ),
+                      const Divider(
+                        height: 10,
+                        color: Colors.transparent,
+                      ),
+                      InkWell(
+                          onTap: () {
+                            showDialog(
+                              context: context,
+                              barrierDismissible: false,
+                              builder: (_) => WillPopScope(
+                                onWillPop: () async => false,
+                                child: AlertDialog(
+                                  title: const Text(
+                                    'Scan CNIC to continue',
+                                    style: TextStyle(
+                                        color: Color(kDarkGreyColor),
+                                        fontSize: 24.0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  content: Scanners(
+                                    uid: FirebaseAuth.instance.currentUser!.uid,
+                                    email: FirebaseAuth
+                                        .instance.currentUser!.email,
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                          child: const ListTile(
+                              title: Text('CNIC Scanner'),
+                              trailing: Icon(Icons.scanner))),
                       const Divider(
                         height: 10,
                         color: Colors.transparent,
