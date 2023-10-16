@@ -109,8 +109,7 @@ class _HomeState extends State<Home> {
                           builder:
                               (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                             if (snapshot.hasData &&
-                                snapshot.connectionState ==
-                                    ConnectionState.done) {
+                                snapshot.data!.docs.length != 0) {
                               return Column(
                                 children: [
                                   CarouselSlider.builder(
@@ -243,8 +242,7 @@ class _HomeState extends State<Home> {
                           builder: (BuildContext context,
                               AsyncSnapshot<QuerySnapshot> snapshot) {
                             if (snapshot.hasData &&
-                                snapshot.connectionState ==
-                                    ConnectionState.done) {
+                                snapshot.data!.docs.length != 0) {
                               return ListView.builder(
                                   itemCount: snapshot.data!.docs.length,
                                   itemBuilder:
