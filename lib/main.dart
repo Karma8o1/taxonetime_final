@@ -10,13 +10,11 @@ import 'firebase_options.dart';
 bool isViewed = false;
 late bool themeState;
 late SharedPreferences prefs;
-bool isFirebaseReady = true;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   ).catchError((e) {
-   
     print(e);
   });
   prefs = await SharedPreferences.getInstance();
