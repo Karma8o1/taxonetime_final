@@ -361,7 +361,7 @@ class _ScannersState extends State<Scanners> {
                 } else {
                   showDialog(
                       context: context,
-                      barrierDismissible: false,
+                      barrierDismissible: true,
                       builder: (_) => WillPopScope(
                             onWillPop: () async => false,
                             child: AlertDialog(
