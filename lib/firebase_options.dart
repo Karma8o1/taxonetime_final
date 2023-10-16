@@ -56,11 +56,12 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-      apiKey: 'AIzaSyBIZd3wGhq7HtKrqDXLdR15UhixVLYqimk',
-      appId: '1:164525720989:android:4d8d63e2171c66b9e51b74',
-      messagingSenderId: '164525720989',
-      projectId: 'taxonetime-cff62',
-      storageBucket: 'taxonetime-cff62.appspot.com');
+    apiKey: 'AIzaSyBIZd3wGhq7HtKrqDXLdR15UhixVLYqimk',
+    appId: '1:164525720989:android:4d8d63e2171c66b9e51b74',
+    messagingSenderId: '164525720989',
+    projectId: 'taxonetime-cff62',
+    storageBucket: 'taxonetime-cff62.appspot.com',
+  );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyB1dA8u45zLwl3kQjNCHvLJZxGEPRa3mps',
@@ -68,6 +69,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '164525720989',
     projectId: 'taxonetime-cff62',
     storageBucket: 'taxonetime-cff62.appspot.com',
+    androidClientId: '164525720989-bp6bu9u120r7u0mblm7gvfg66o3q1625.apps.googleusercontent.com',
+    iosClientId: '164525720989-t4dv2jnklrs7sqndsljha6er196obe9m.apps.googleusercontent.com',
     iosBundleId: 'com.example.taxonetime',
   );
 }

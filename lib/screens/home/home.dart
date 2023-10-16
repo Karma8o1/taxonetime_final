@@ -102,13 +102,14 @@ class _HomeState extends State<Home> {
                   children: [
                     SizedBox(
                       height: 250,
-                      child: StreamBuilder(
-                          stream: FirebaseFirestore.instance
+                      child: FutureBuilder(
+                          future: FirebaseFirestore.instance
                               .collection('slider')
-                              .snapshots(),
+                              .get(),
                           builder:
                               (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                            if (snapshot.hasData && snapshot.data != null) {
+                            if (snapshot.hasData &&
+                                snapshot.data!.docs.length != 0) {
                               return Column(
                                 children: [
                                   CarouselSlider.builder(
@@ -234,13 +235,14 @@ class _HomeState extends State<Home> {
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height - 415,
-                      child: StreamBuilder(
-                          stream: FirebaseFirestore.instance
+                      child: FutureBuilder(
+                          future: FirebaseFirestore.instance
                               .collection('categories')
-                              .snapshots(),
+                              .get(),
                           builder: (BuildContext context,
                               AsyncSnapshot<QuerySnapshot> snapshot) {
-                            if (snapshot.hasData && snapshot.data != null) {
+                            if (snapshot.hasData &&
+                                snapshot.data!.docs.length != 0) {
                               return ListView.builder(
                                   itemCount: snapshot.data!.docs.length,
                                   itemBuilder:
