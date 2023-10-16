@@ -14,14 +14,10 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-  ).catchError((e) {
-    print(e);
-  });
+  );
   prefs = await SharedPreferences.getInstance();
   isViewed = prefs.getBool('showHome') ?? false;
   themeState = prefs.getBool('theme') ?? false;
-  // FirebaseFirestore.instance
-  //     .enablePersistence(PersistenceSettings(synchronizeTabs: true));
   Get.put(AuthController());
   AuthController.authInstance.themeState.value = themeState;
 

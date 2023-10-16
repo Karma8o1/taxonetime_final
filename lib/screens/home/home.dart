@@ -1,5 +1,3 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -109,8 +107,7 @@ class _HomeState extends State<Home> {
                           builder:
                               (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                             if (snapshot.hasData &&
-                                snapshot.connectionState ==
-                                    ConnectionState.done) {
+                                snapshot.data!.docs.length != 0) {
                               return Column(
                                 children: [
                                   CarouselSlider.builder(
@@ -243,8 +240,7 @@ class _HomeState extends State<Home> {
                           builder: (BuildContext context,
                               AsyncSnapshot<QuerySnapshot> snapshot) {
                             if (snapshot.hasData &&
-                                snapshot.connectionState ==
-                                    ConnectionState.done) {
+                                snapshot.data!.docs.length != 0) {
                               return ListView.builder(
                                   itemCount: snapshot.data!.docs.length,
                                   itemBuilder:
