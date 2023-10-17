@@ -56,8 +56,8 @@ class CategoryWidget extends StatelessWidget {
                         },
                         child: Container(
                           padding: const EdgeInsets.all(1),
-                          height: 150,
-                          width: 150,
+                          height: 90,
+                          width: 90,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             mainAxisSize: MainAxisSize.min,
@@ -77,7 +77,7 @@ class CategoryWidget extends StatelessWidget {
                                     ),
                                   )),
                               const Divider(
-                                height: 10,
+                                height: 1,
                                 color: Colors.transparent,
                               ),
                               Text(e['name']),

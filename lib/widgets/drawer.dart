@@ -22,7 +22,7 @@ class DrawerWidget extends StatelessWidget {
         child: SafeArea(
           child: SingleChildScrollView(
             child: Container(
-              height: MediaQuery.of(context).size.height - 100,
+              height: MediaQuery.of(context).size.height - 45,
               decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(5),
@@ -72,7 +72,7 @@ class DrawerWidget extends StatelessWidget {
                         ),
                       ),
                       const Divider(
-                        height: 10,
+                        height: 1,
                         color: Colors.transparent,
                       ),
                       InkWell(
@@ -85,7 +85,7 @@ class DrawerWidget extends StatelessWidget {
                         ),
                       ),
                       const Divider(
-                        height: 10,
+                        height: 1,
                         color: Colors.transparent,
                       ),
                       InkWell(
@@ -116,7 +116,7 @@ class DrawerWidget extends StatelessWidget {
                               title: Text('CNIC Scanner'),
                               trailing: Icon(Icons.scanner))),
                       const Divider(
-                        height: 10,
+                        height: 1,
                         color: Colors.transparent,
                       ),
                       InkWell(
@@ -129,7 +129,7 @@ class DrawerWidget extends StatelessWidget {
                         ),
                       ),
                       const Divider(
-                        height: 10,
+                        height: 1,
                         color: Colors.transparent,
                       ),
                       const ListTile(
@@ -137,7 +137,7 @@ class DrawerWidget extends StatelessWidget {
                         trailing: Icon(Icons.design_services_sharp),
                       ),
                       const Divider(
-                        height: 10,
+                        height: 1,
                         color: Colors.transparent,
                       ),
                       InkWell(
@@ -171,7 +171,7 @@ class DrawerWidget extends StatelessWidget {
                             )),
                       ),
                       const Divider(
-                        height: 20,
+                        height: 2,
                         color: Colors.transparent,
                       ),
                     ],

@@ -227,11 +227,8 @@ class _HomeState extends State<Home> {
                         ],
                       ),
                     ),
-                    const Divider(
-                      height: 25,
-                    ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height - 415,
+                      height: MediaQuery.of(context).size.height - 425,
                       child: StreamBuilder(
                           stream: FirebaseFirestore.instance
                               .collection('categories')

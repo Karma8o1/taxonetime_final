@@ -32,6 +32,8 @@ class _ChatbotState extends State<Chatbot> {
     DialogFlow dialogFlow =
         DialogFlow(authGoogle: authGoogle, language: Language.english);
     AIResponse aiResponse = await dialogFlow.detectIntent(query);
+    print("aiResponse0");
+    print(aiResponse);
     setState(() {
       messages.insert(0, {
         "data": 0,
